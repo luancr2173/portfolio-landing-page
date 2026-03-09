@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/home';
+import Home from './pages/Home';
 import LandingApp from './pages/LandingApp';
 import LandingSaaS from './pages/LandingSaaS';
 import LandingStartup from './pages/LandingStartup';
