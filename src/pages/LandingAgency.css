@@ -1,0 +1,261 @@
+/* Variáveis visuais */
+
+:root{
+  --primary:#7c3aed;
+  --secondary:#f472b6;
+  --accent:#22d3ee;
+  --dark:#020617;
+  --light:#f8fafc;
+
+  --glass:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.12);
+}
+
+/* BASE */
+
+.landing-agency-root{
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:var(--light);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* background glow */
+
+.landing-agency-root::before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  background: radial-gradient(circle,#7c3aed,#22d3ee);
+  filter: blur(160px);
+  opacity:0.15;
+  top:-200px;
+  left:-200px;
+  z-index:0;
+}
+
+/* HERO */
+
+.hero-section-wrapper{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+
+  background:
+  radial-gradient(circle at 80% 20%,#7c3aed22,transparent),
+  radial-gradient(circle at 20% 80%,#22d3ee22,transparent),
+  var(--dark);
+}
+
+/* TEXT GRADIENT */
+
+.text-gradient{
+  background: linear-gradient(90deg,#a78bfa,#f472b6,#22d3ee);
+  background-size:200% 200%;
+  animation:gradientMove 6s ease infinite;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  font-weight:800;
+}
+
+/* gradiente animado */
+
+@keyframes gradientMove{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+
+}
+
+.process-modern{
+  padding:100px 20px;
+}
+
+.process-timeline{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+
+/* CARD */
+
+.timeline-card{
+  position:relative;
+
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+
+  padding:40px 30px;
+  border-radius:20px;
+
+  transition:all .35s ease;
+
+  backdrop-filter:blur(10px);
+}
+
+/* HOVER */
+
+.timeline-card:hover{
+  transform:translateY(-10px);
+  border-color:#7c3aed;
+}
+
+/* NÚMERO */
+
+.timeline-number{
+  position:absolute;
+  top:-20px;
+  left:20px;
+
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+
+  width:50px;
+  height:50px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:700;
+  font-size:18px;
+}
+
+/* TEXTO */
+
+.timeline-content h3{
+  margin-top:20px;
+  font-size:22px;
+}
+
+.timeline-content p{
+  opacity:.75;
+  margin-top:10px;
+  line-height:1.6;
+}
+
+/* RESULTS */
+
+.results-grid-modern{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+  padding:4rem 1rem;
+}
+
+/* CARDS GLASS */
+
+.glass-stat-card{
+  position:relative;
+
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+
+  border:1px solid var(--glass-border);
+  border-radius:24px;
+
+  padding:3rem 2rem;
+
+  text-align:center;
+
+  transition:all .35s ease;
+  overflow:hidden;
+}
+
+/* energia no hover */
+
+.glass-stat-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    120deg,
+    transparent,
+    #7c3aed33,
+    #22d3ee33,
+    transparent
+  );
+
+  opacity:0;
+  transition:.4s;
+}
+
+.glass-stat-card:hover{
+  transform:translateY(-12px) scale(1.04);
+  border-color:var(--primary);
+}
+
+.glass-stat-card:hover::before{
+  opacity:1;
+}
+
+/* número */
+
+.glass-stat-card h3{
+  font-size:3.5rem;
+  margin-bottom:.5rem;
+
+  background:linear-gradient(#fff,#94a3b8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* PROCESS */
+
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:3rem;
+  margin-top:3rem;
+}
+
+/* número da etapa */
+
+.step-num{
+  font-size:.8rem;
+  font-weight:bold;
+
+  color:var(--accent);
+
+  letter-spacing:2px;
+  display:block;
+  margin-bottom:1rem;
+}
+
+/* TITULOS */
+
+.section-title{
+  text-align:center;
+  font-size:2.6rem;
+  margin-top: 2rem;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+  .glass-stat-card h3{
+    font-size:2.5rem;
+  }
+
+  .section-title{
+    font-size:2rem;
+  }
+
+}
